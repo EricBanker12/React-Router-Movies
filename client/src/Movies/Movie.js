@@ -4,7 +4,7 @@ import axios from 'axios';
 import MovieCard from './MovieCard'
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
  
   useEffect(() => {
     const id = props.match.params.id;
@@ -28,7 +28,7 @@ const Movie = (props) => {
     addToSavedList(movie)
   }
 
-  if (!Object.keys(movie).length) {
+  if (!movie) {
     return <div>Loading movie information...</div>;
   }
 
